@@ -14,7 +14,7 @@ body {
   p {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    color: rgb(136, 136, 136);
+    color: rgb(255, 255, 255);
   }
 
   p.separator {
@@ -30,6 +30,10 @@ body {
     color: rgb(136, 136, 136);
     text-align: left;
     font-weight: 300;
+  }
+
+  .form-group input[type=text], .form-group input[type=password] {
+    color: rgb(201, 201, 201);
   }
 
   .form-group {
