@@ -3,8 +3,10 @@
 <html>
     <body>
         <h1>Hello {{session["username"]}}</h1>
+        <iframe width="420" height="345" src="https://www.youtube.com/embed/ed1xwAtF728">
+        </iframe>
         
-        <form action={{url_for('login')}}>
+        <form action={{url_for('routes.login')}}>
             <p><input type = "submit" value = "login"/></p>
           </form>
         <form action={{url_for('logout')}}>
