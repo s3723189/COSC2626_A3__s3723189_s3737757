@@ -24,6 +24,11 @@ def register():
         if result.status_code == requests.codes.ok:
             #Register Success
             return redirect(url_for('routes.login'))
+
+        elif result.status_code == 400:
+            message = json.loads(result.text)
+            flash(message['message'])
+            return render_template('register.html')
         else:
             #Register Fail
             return render_template('register.html')
