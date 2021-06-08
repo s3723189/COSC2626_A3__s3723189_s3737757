@@ -1,9 +1,11 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
 import requests
 import json
+
 from routes import *
 app = Flask(__name__)
 app.register_blueprint(routes)
+
 app.secret_key = 'SECRET_KEY'
 @app.route('/')
 def root():
@@ -11,15 +13,10 @@ def root():
     return render_template("index.html")
 
 
-
-
-
 @app.route('/logout')
 def logout():
     session.clear()
     return render_template('index.html')
-
-
 
 
 
