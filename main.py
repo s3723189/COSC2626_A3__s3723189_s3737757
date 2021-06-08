@@ -1,11 +1,38 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
+import requests
+import json
 
+from routes import *
 app = Flask(__name__)
+app.register_blueprint(routes)
 
+app.secret_key = 'SECRET_KEY'
 @app.route('/')
 def root():
 
     return render_template("index.html")
+
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return render_template('index.html')
+
+
+
+def log_in_user(name, password, email, primary_key):
+    session['username'] = name
+    session['password'] = password
+    session['email'] = email
+    session['primary_key'] = primary_key
+
+    
+
+def is_logged_in():
+    exists = False
+    if "username" in session:
+        exists = True
+    return exists
 
 
 if __name__ == '__main__':

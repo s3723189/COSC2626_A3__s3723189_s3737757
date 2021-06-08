@@ -2,7 +2,14 @@
 
 <html>
     <body>
-        <h1>Hello</h1>
+        <h1>Hello {{session["username"]}}</h1>
+        
+        <form action={{url_for('routes.login')}}>
+            <p><input type = "submit" value = "login"/></p>
+          </form>
+        <form action={{url_for('logout')}}>
+            <p><input type = "submit" value = "logout"/></p>
+        </form>  
     </body>
 
 
