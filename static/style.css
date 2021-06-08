@@ -17,6 +17,13 @@ body {
     color: rgb(255, 255, 255);
   }
 
+  .error {
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: rgb(255, 0, 0);
+  }
+
   p.separator {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
