@@ -1,8 +1,10 @@
 from flask import render_template
 from flask import Flask, render_template, redirect, url_for, request, session, flash, Blueprint
+
+from flask import Flask, render_template, redirect, url_for, request, session, flash, Blueprint
+import requests
 from . import routes
 
-import requests
 @routes.route('/login', methods = ['GET', 'POST'])
 def login():
 
@@ -15,7 +17,9 @@ def login():
         data = result.json()
         
         if len(data) == 0:
-            return render_template('login.html') 
+
+            return render_template('login.html')
+
         
         data = data[0]
         log_in_user(data[1], data[2], data[3], data[0])
@@ -24,6 +28,7 @@ def login():
 
     else:
         return render_template('login.html')
+
 
 
 def log_in_user(name, password, email, primary_key):
@@ -41,3 +46,4 @@ def log_in_user(name, password, email, primary_key):
 
 
     return "testing"
+
