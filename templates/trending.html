@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <h1>Hello {{session["username"]}}</h1>
+        {% for row in mov %}
+        <img src="{{row[2]}}" width="500" height="600">
+        <a>
+            Name: {{row[1]}}
+            Year: {{row[8]}}
+            Views: {{row[10]}}
+            Rating: {{row[11]}}
+            
+        </a>
+       
+
+        {% endfor %}
+    </body>
+
+
+</html>
