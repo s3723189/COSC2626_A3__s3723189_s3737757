@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <h1>Hello {{session["username"]}}</h1>
+        <a> Poster</a>
+        <img src="{{movie[2]}}" width="500" height="600">
+        <a> Teaser</a>
+        <iframe width="420" height="345" src="{{movie[3]}}">
+        </iframe>
+        <a>Image 1</a>
+        <img src="{{movie[4]}}" width="500" height="600">
+        <a> Image 2</a>
+        <img src="{{movie[5]}}" width="500" height="600">
+        <a>
+            Name: {{movie[1]}}
+            Year: {{movie[8]}}
+            Views: {{movie[10]}}
+            Rating: {{movie[11]}}
+        </a>
+        <br>
+        <a>
+            Genre
+            {% for row in genres %}
+            {{row[0]}}  
+            ,
+            {% endfor %}
+        </a>
+        <br>
+        <a>
+            Cast
+            {% for row in cast %}
+            {{row[1]}}
+            {{row[2]}}
+            
+            ,
+            {% endfor %}
+        </a>
+        <br>
+        <a>
+            Director
+            {% for row in director %}
+            {{row[1]}}
+            {{row[2]}}
+            
+            ,
+            {% endfor %}
+        </a>
+       
+    </body>
+
+</html>
