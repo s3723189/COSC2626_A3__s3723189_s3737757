@@ -3,27 +3,137 @@
 <html>
     <body>
         <h1>Hello {{session["username"]}}</h1>
-        {% for row in mov %}
+        Romance
+        {% for row in mov_rom %}
+        <img src="{{row[2]}}" width="500" height="600">
         <a>
             Name: {{row[1]}}
-            Description: {{row[6]}}
             Year: {{row[8]}}
-            Duration: {{row[9]}}
+            Views: {{row[10]}}
+            Rating: {{row[11]}}
             
         </a>
+        
+
+        {% endfor %}
+
+        <br>
+        Sci-Fi
+
+        {% for row in mov_sf %}
         <img src="{{row[2]}}" width="500" height="600">
-        <img src="{{row[4]}}" width="500" height="600">
-        <img src="{{row[5]}}" width="500" height="600">
+        <a>
+            Name: {{row[1]}}
+            Year: {{row[8]}}
+            Views: {{row[10]}}
+            Rating: {{row[11]}}
+            
+        </a>
         
-        <iframe width="420" height="345" src="{{row[3]}}">
-        </iframe>
+        {% endfor %}
+
+        <br>
+        Action
+        {% for row in mov_act %}
+        <img src="{{row[2]}}" width="500" height="600">
+        <a>
+            Name: {{row[1]}}
+            Year: {{row[8]}}
+            Views: {{row[10]}}
+            Rating: {{row[11]}}
+            
+        </a>
+       
+
+        {% endfor %}
+
+        <br>
+        Adventure
+        {% for row in mov_adv %}
+        <img src="{{row[2]}}" width="500" height="600">
+        <a>
+            Name: {{row[1]}}
+            Year: {{row[8]}}
+            Views: {{row[10]}}
+            Rating: {{row[11]}}
+            
+        </a>
+       
+
+        {% endfor %}
         
-        <form action={{url_for('routes.login')}}>
-            <p><input type = "submit" value = "login"/></p>
-          </form>
-        <form action={{url_for('logout')}}>
-            <p><input type = "submit" value = "logout"/></p>
-        </form>  
+
+        <br>
+        Horror
+        {% for row in mov_hor %}
+        <img src="{{row[2]}}" width="500" height="600">
+        <a>
+            Name: {{row[1]}}
+            Year: {{row[8]}}
+            Views: {{row[10]}}
+            Rating: {{row[11]}}
+            
+        </a>
+       
+
+        {% endfor %}
+
+        <br>
+        Thriller
+        {% for row in mov_thr %}
+        <img src="{{row[2]}}" width="500" height="600">
+        <a>
+            Name: {{row[1]}}
+            Year: {{row[8]}}
+            Views: {{row[10]}}
+            Rating: {{row[11]}}
+            
+        </a>
+       
+
+        {% endfor %}
+
+        <br>
+        Korean
+        {% for row in mov_kor %}
+        <img src="{{row[2]}}" width="500" height="600">
+        <a>
+            Name: {{row[1]}}
+            Year: {{row[8]}}
+            Views: {{row[10]}}
+            Rating: {{row[11]}}
+            
+        </a>
+       
+        {% endfor %}
+        <br>
+        Japanese
+        {% for row in mov_jp %}
+        <img src="{{row[2]}}" width="500" height="600">
+        <a>
+            Name: {{row[1]}}
+            Year: {{row[8]}}
+            Views: {{row[10]}}
+            Rating: {{row[11]}}
+            
+        </a>
+       
+
+        {% endfor %}
+
+        <br>
+        Anime
+        {% for row in mov_ani %}
+        <img src="{{row[2]}}" width="500" height="600">
+        <a>
+            Name: {{row[1]}}
+            Year: {{row[8]}}
+            Views: {{row[10]}}
+            Rating: {{row[11]}}
+            
+        </a>
+       
+
         {% endfor %}
     </body>
 

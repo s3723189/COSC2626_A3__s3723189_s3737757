@@ -31,8 +31,7 @@
             Cast
             {% for row in cast %}
             {{row[1]}}
-            {{row[2]}}
-            
+            {{row[2]}} 
             ,
             {% endfor %}
         </a>
@@ -46,7 +45,31 @@
             ,
             {% endfor %}
         </a>
+        {% if has_watched == False %}
+
+        <a href="{{url_for('routes.watchlist', movie_name = movie_num)}}">Add to watch list</a>
+        
+        {% endif %}
+        
+
+        <form action={{ url_for('routes.movie', movie_name = movie_num) }} method="post">
+        <select class="form-control" id="rating" name="rating">
+            <option value="10" >10</option>
+            <option value="9">9</option>
+            <option value="8" >8</option>
+            <option value="7">7</option>
+            <option value="6">6</option>
+            <option value="5" selected>5</option>
+            <option value="4">4</option>
+            <option value="3" >3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+        </select>
        
+        <div class="form-group">
+            <button class="btn btn-default" type="submit">Rate</button>
+        </div>
+        </form>
     </body>
 
 </html>
