@@ -16,7 +16,7 @@ def root():
 @app.route('/logout')
 def logout():
     session.clear()
-    return render_template('index.html')
+    return redirect(url_for('root'))
 
 
 

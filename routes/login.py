@@ -22,7 +22,7 @@ def login():
 
         
         data = data[0]
-        log_in_user(data[1], data[2], data[3], data[0])
+        log_in_user(data[2], data[3], data[1], data[0])
         return redirect(url_for('root'))
 
 
@@ -36,6 +36,7 @@ def log_in_user(name, password, email, primary_key):
     session['password'] = password
     session['email'] = email
     session['primary_key'] = primary_key
+    print(email)
     request_query = "https://tqxdruy9ka.execute-api.us-east-1.amazonaws.com/default"\
         "/redis?action={action}&token={email1}".format(action = "login", email1 = email)
     result = requests.get(url = request_query)

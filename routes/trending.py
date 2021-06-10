@@ -11,7 +11,7 @@ def trending():
     result = requests.get(url = request_query)
     data = result.json()
     
-
+    
     return render_template('trending.html', mov = data)
 
 
