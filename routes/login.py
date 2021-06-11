@@ -22,7 +22,11 @@ def login():
 
         
         data = data[0]
-        log_in_user(data[2], data[3], data[1], data[0])
+        success = log_in_user(data[2], data[3], data[1], data[0])
+
+        if not success:
+            return render_template('login.html')
+
         return redirect(url_for('root'))
 
 
@@ -32,19 +36,29 @@ def login():
 
 
 def log_in_user(name, password, email, primary_key):
+    query =f"https://tqxdruy9ka.execute-api.us-east-1.amazonaws.com/default/redis?action=check&token={email}"
+    result = requests.get(url = query)
+    result = result.json()
+    if result == "b'true'":
+        print('Already Logged in ')
+
+        #### DO EMAIL STUFF HERE
+
+
+        return False
+
     session['username'] = name
     session['password'] = password
     session['email'] = email
     session['primary_key'] = primary_key
-    print(email)
+    
     request_query = "https://tqxdruy9ka.execute-api.us-east-1.amazonaws.com/default"\
         "/redis?action={action}&token={email1}".format(action = "login", email1 = email)
     result = requests.get(url = request_query)
     data = result.json()
-    print(data)
 
     
 
 
-    return "testing"
+    return True
 

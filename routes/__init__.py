@@ -8,4 +8,4 @@ from .trending import *
 from .movie import *
 from .register import *
 from .watchlist import *
-
+from .home import *
