@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <h1>Hello {{session["username"]}}</h1>
+        {% for row in mov %}
+        <img src="{{row[4]}}" width="500" height="600">
+        <a>
+            Name: {{row[1]}}
+            Year: {{row[8]}}
+            Views: {{row[10]}}
+            
+        </a>
+       
+
+        {% endfor %}
+        <a href= "{{url_for('routes.trending')}}">More </a>
+    </body>
+
+
+</html>

@@ -15,6 +15,9 @@ def root():
 
 @app.route('/logout')
 def logout():
+    
+    query =f"https://tqxdruy9ka.execute-api.us-east-1.amazonaws.com/default/redis?action=logout&token={session['email']}"
+    requests.get(url = query)
     session.clear()
     return redirect(url_for('root'))
 
