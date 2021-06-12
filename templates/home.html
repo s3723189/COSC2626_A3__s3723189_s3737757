@@ -2,51 +2,75 @@
 
 <html>
     <body>
-        <h1>Hello {{session["username"]}}</h1>
-        <div>
-            <a class="active" href="#home">Home</a>
-            
-              <form action={{url_for('routes.home')}} method = "post">
-                <input type="text" placeholder="Search.." name="search">
+        <head>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+            <link rel="stylesheet" href="/static/style.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+        </head>
+            <div class="navbar">
+                <a class="current"  href="{{url_for('routes.home')}}">Home</a>
+
+                <form action={{url_for('routes.home')}} method = "get">
+                    <input type="text" placeholder="Search.." name="search" value="{{keyword}}">
                 <button type="submit"><i class="fa fa-search">Search</i></button>
-              </form>
+                </form>
+
+                <a href="{{url_for('routes.trending')}}">Trending</a>
+                <a href="{{url_for('routes.explore')}}">Explore</a>
+                <a href="{{url_for('routes.profile')}}">Profile</a>
+            </div>
+
             
+            
+        <div class="container_page container">
+            <div class="row section">
+                <div class="col">
+                    <h2>What't Trending?</h2>
+                        <ul class="home_list">
+                            {% for index in range(mov|length) %}
+                            <li class="item">
+                                {% if index == 0 %}
+                                    <iframe width="1200" height="500" src="{{mov[index][3]}}">
+                                    </iframe>
+                                {% else %}
+                                    <iframe width="320" height="160" src="{{mov[index][3]}}">
+                                    </iframe>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                            <li class="more item">
+                                <a href= "{{url_for('routes.trending')}}">More..</a>
+                            </li>  
+                        </ul>
+                        <div class="clearfix">
+
+                        </div>
+                </div>
+            </div>
+
+            <div class="row section">
+                <div class="col movie_list">
+                    {% if search_mov is defined %}
+                    <h2>Search result</h2>
+                    {% endif %}
+                    {% for row in search_mov %}
+                        <a href="{{url_for('routes.movie', movie_name=row[0][0])}}">
+                            <div class="movie row">
+                                    <div class="col-md-3">
+                                        <img src={{row[0][4]}} width="200px" height="200px">
+                                    </div>
+                                    <div class="col-md-6 title">
+                                        <div class="item">{{row[0][1]}} ({{row[0][7]}})</div>
+                                    </div>
+                                    <div class="col-md-3 rating">
+                                        <div class="item"><img src="https://d1jphzkpp95em7.cloudfront.net/star.png" width="50px" height="50px">{{row[0][9]}}</div>
+                                    </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
-
-        {% for row in mov %}
-
-       
-
-        <img src="{{row[4]}}" width="500" height="600">
-        <a>
-            Name: {{row[1]}}
-            Year: {{row[8]}}
-            Views: {{row[10]}}
-            
-        </a>
-       
-
-        {% endfor %}
-        <a href= "{{url_for('routes.trending')}}">More </a>
-
-        <br>
-        {% if search_mov is defined %}
-        Search result
-        {% endif %}
-        <br>
-        {% for row in search_mov %}
-
-       
-
-        <img src="{{row[0][4]}}" width="500" height="600">
-        <a>
-            Name: {{row[0][1]}}
-            
-        </a>
-       
-
-        {% endfor %}
     </body>
-
-
 </html>
