@@ -45,9 +45,8 @@ def movie(movie_name):
     data_cast = result_cast.json()
     data_director = result_director.json()
     data_genre = result_genre.json()
-    print(data)
     data = data[0]
-
+    print(data)
     watched= has_watched(movie_name)
     return render_template('movie.html', movie = data,  cast = data_cast, director = data_director, genres = data_genre, 
     movie_num = movie_name, has_watched = watched)

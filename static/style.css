@@ -228,3 +228,46 @@ ul {
 div.row.section {
     margin: 100px 0px;
 }
+
+.movie_prop {
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(126, 126, 126);
+}
+
+.row .images {
+    border: solid 5px #2b3f42;
+}
+
+.desc {
+    margin-top: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 400px;
+}
+
+.director {
+    font-weight: 500;
+    margin-top: 40px;
+}
+
+.cast {
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.btn-rate {
+    background-color: rgb(211, 190, 71);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 20px;
+    border-radius: 35px;
+    border: none;
+    width: 100%;
+    height: 45px;
+    margin-bottom: 40px;
+  }
