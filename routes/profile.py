@@ -27,12 +27,14 @@ def profile():
 
     else:
         request_query = "https://ntz3p089j3.execute-api.us-east-1.amazonaws.com/default/profile?email={email}".format(email = session['email'])
-
+        watchlist_query = "https://dh5ajdz1q0.execute-api.us-east-1.amazonaws.com/default/watchlist?email={email}".format(email = session['email'])
         result = requests.get(url = request_query)
+        result_watchlist = requests.get(url = watchlist_query)
 
         if result.status_code == requests.codes.ok:
             response = json.loads(result.text)
-            return render_template('profile.html', username=response['username'], profile_pic=response['profile_pic'], mobile=response['mobile_num'])
+            response_watchlist = json.loads(result_watchlist.text)
+            return render_template('profile.html', username=response['username'], profile_pic=response['profile_pic'], mobile=response['mobile_num'], watchlist=response_watchlist)
 
         else:
             return 
