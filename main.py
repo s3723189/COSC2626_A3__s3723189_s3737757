@@ -19,7 +19,7 @@ def logout():
     query =f"https://tqxdruy9ka.execute-api.us-east-1.amazonaws.com/default/redis?action=logout&token={session['email']}"
     requests.get(url = query)
     session.clear()
-    return redirect(url_for('root'))
+    return redirect(url_for('routes.login'))
 
 
 
@@ -41,3 +41,4 @@ if __name__ == '__main__':
     # http://flask.pocoo.org/docs/1.0/quickstart/#static-files. Once deployed,
     # App Engine itself will serve those files as configured in app.yaml.
     app.run(host='127.0.0.1', port=8080, debug=True)
+

@@ -46,7 +46,7 @@ def movie(movie_name):
     data_director = result_director.json()
     data_genre = result_genre.json()
     data = data[0]
-
+    print(data)
     watched= has_watched(movie_name)
     return render_template('movie.html', movie = data,  cast = data_cast, director = data_director, genres = data_genre, 
     movie_num = movie_name, has_watched = watched)
@@ -62,7 +62,7 @@ def has_watched(mov_num):
     
     result = requests.get(url = query)
     data = result.json()
-    print(data)
+    #print(data)
     if bool(data):
         print("it went in")
         watched = True
