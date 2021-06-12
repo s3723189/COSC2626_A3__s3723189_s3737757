@@ -1,7 +1,6 @@
 from flask import render_template
 from flask import Flask, render_template, redirect, url_for, request, session, flash, Blueprint
 
-from flask import Flask, render_template, redirect, url_for, request, session, flash, Blueprint
 import requests
 from . import routes
 

@@ -8,4 +8,5 @@ redis
 requests
 
 elasticsearch 
-requests_aws4auth 
+requests_aws4auth
+Werkzeug

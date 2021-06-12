@@ -95,4 +95,43 @@ input[class=form-control] {
     background-color: rgb(19, 32, 36);
     resize: none;
   }
+
+/* The navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: rgb(34, 55, 61);
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.navbar .current{
+  color: rgb(221, 204, 45);
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+  background: none;
+  color: rgb(221, 204, 45);
+}
+
+.container_page {
+  margin-top: 200px;
+}
+
+.profile-pic {
+  color: #f2f2f2;
+}
   
