@@ -159,6 +159,12 @@ input[class=form-control] {
     font-size: 30px;
 }
 
+.movie_list .view {
+    color: #949494;
+    font-weight: 400;
+    font-size: 20px;
+}
+
 .movie_list .rating {
     text-align: center;
     margin-top: 75px;
