@@ -10,6 +10,13 @@ body {
     font-weight: 500;
     font-size: 75px;
   }
+
+  h2 {
+    color: #ffffff;
+    text-align: left;
+    font-weight: 500;
+    font-size: 30px;
+  }
   
   p {
     font-family: 'Poppins', sans-serif;
@@ -134,4 +141,53 @@ input[class=form-control] {
 .profile-pic {
   color: #f2f2f2;
 }
+
+.watchlist {
+  margin-top: 75px;
+}
+
+/*Movie list*/
+
+.movie_list .movie{
+    margin-top: 20px;
+    background-color: rgb(36, 67, 70);
+}
+
+.movie_list .item {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.movie_list .rating {
+    text-align: center;
+    margin-top: 75px;
+}
+
+.movie_list .title {
+    text-align: left;
+    margin-top: 75px;
+}
+
+.movie_list a {
+    text-decoration: none;
+}
+
+/*scroll menu explore*/
+div.scrollmenu {
+    background-color: rgb(34, 55, 61);
+    overflow: auto;
+    white-space: nowrap;
+  }
   
+  div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+  
+  div.scrollmenu a:hover {
+    background-color: rgb(64, 100, 92);
+  }
