@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <h1>Hello {{session["username"]}}</h1>
+        <div>
+            <a class="active" href="#home">Home</a>
+            
+              <form action={{url_for('routes.home')}} method = "post">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search">Search</i></button>
+              </form>
+            
+        </div>
+
+        {% for row in mov %}
+
+       
+
+        <img src="{{row[4]}}" width="500" height="600">
+        <a>
+            Name: {{row[1]}}
+            Year: {{row[8]}}
+            Views: {{row[10]}}
+            
+        </a>
+       
+
+        {% endfor %}
+        <a href= "{{url_for('routes.trending')}}">More </a>
+
+        <br>
+        {% if search_mov is defined %}
+        Search result
+        {% endif %}
+        <br>
+        {% for row in search_mov %}
+
+       
+
+        <img src="{{row[0][4]}}" width="500" height="600">
+        <a>
+            Name: {{row[0][1]}}
+            
+        </a>
+       
+
+        {% endfor %}
+    </body>
+
+
+</html>
