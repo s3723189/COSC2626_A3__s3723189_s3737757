@@ -27,9 +27,10 @@ def login():
         success = log_in_user(data[2], data[3], data[1], data[0])
 
         if not success:
+            print('Not success')
             return render_template('login.html')
 
-        return redirect(url_for('root'))
+        return redirect(url_for('routes.home'))
 
 
     else:
