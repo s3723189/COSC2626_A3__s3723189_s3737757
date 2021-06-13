@@ -3,17 +3,17 @@ import requests
 import json
 
 from routes import *
-app = Flask(__name__)
-app.register_blueprint(routes)
+application = Flask(__name__)
+application.register_blueprint(routes)
 
-app.secret_key = 'SECRET_KEY'
-@app.route('/')
+application.secret_key = 'SECRET_KEY'
+@application.route('/')
 def root():
 
     return render_template("login.html")
 
 
-@app.route('/logout')
+@application.route('/logout')
 def logout():
     
     query =f"https://tqxdruy9ka.execute-api.us-east-1.amazonaws.com/default/redis?action=logout&token={session['email']}"
@@ -40,5 +40,6 @@ if __name__ == '__main__':
     # the "static" directory. See:
     # http://flask.pocoo.org/docs/1.0/quickstart/#static-files. Once deployed,
     # App Engine itself will serve those files as configured in app.yaml.
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    application.run(host='127.0.0.1', port=8080, debug=True)
+    
 

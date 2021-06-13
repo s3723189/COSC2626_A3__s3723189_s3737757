@@ -5,6 +5,9 @@ from . import routes
 import requests
 @routes.route('/movie/<int:movie_name>', methods = ['GET', 'POST'])
 def movie(movie_name):
+    if not session.get('username'):
+        flash(f'Error: Please login')
+        return redirect(url_for('routes.login'))
 
     if request.method == 'POST':
         rating = request.form['rating']

@@ -6,7 +6,9 @@ from . import routes
 import requests
 @routes.route('/explore', methods = ['GET'])
 def explore():
-    print(session['username'])
+    if not session.get('username'):
+        flash(f'Error: Please login')
+        return redirect(url_for('routes.login'))
 
     data_1 = get_genre('Romance')
     data_2 = get_genre('Sci-Fi')
