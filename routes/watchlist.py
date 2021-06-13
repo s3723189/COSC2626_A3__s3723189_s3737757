@@ -19,6 +19,6 @@ def watchlist(movie_name):
     
 
     
-    return redirect(url_for('routes.home'))
+    return redirect(url_for('routes.movie', movie_name=movie_name))
 
     
