@@ -20,7 +20,7 @@ def explore():
   
     print(data_9)
 
-    return render_template('explore.html', mov_rom = data_1, 
+    return render_template('explore.html', profile_pic=session['profile_pic'], mov_rom = data_1, 
         mov_sf = data_2, 
         mov_act = data_3, 
         mov_adv = data_4,

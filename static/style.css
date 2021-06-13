@@ -105,9 +105,7 @@ input[class=form-control] {
 
 /* The navigation bar */
 .navbar {
-  overflow: hidden;
   background-color: rgb(34, 55, 61);
-  position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
 }
@@ -116,16 +114,32 @@ input[class=form-control] {
 .navbar a {
   float: left;
   display: block;
-  color: #f2f2f2;
-  text-align: center;
+  color: #ffffff;
   padding: 10px;
   text-decoration: none;
   font-weight: 500;
-  font-size: 30px;
+}
+
+.navbar-nav li {
+  padding-left: 20px;
+}
+
+.nav-link.active {
+  color: rgb(221, 204, 45);
 }
 
 .navbar .current{
   color: rgb(221, 204, 45);
+}
+
+.dropdown-menu {
+  background-color: rgb(38, 57, 63);
+}
+
+.btn-outline-success {
+  color: #020202;
+  border-color: none;
+  background-color: white;
 }
 
 /* Change background on mouse-over */

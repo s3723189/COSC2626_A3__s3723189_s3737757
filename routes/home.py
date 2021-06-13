@@ -22,12 +22,12 @@ def home():
     if search is not None:
         search_data = return_movies(search)
         print(search_data)
-        return render_template("home.html", mov = data, search_mov = search_data, keyword = search)
+        return render_template("home.html", mov = data, search_mov = search_data, keyword = search, profile_pic=session['profile_pic'])
     else:
         print('Search none')
 
     
-    return render_template("home.html", mov = data)
+    return render_template("home.html", mov = data, profile_pic=session['profile_pic'])
 
 
 def return_movies(search):

@@ -12,7 +12,7 @@ def trending():
     data = result.json()
     
     
-    return render_template('trending.html', mov = data)
+    return render_template('trending.html', mov = data, profile_pic=session['profile_pic'])
 
 
 

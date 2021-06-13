@@ -18,7 +18,7 @@ s3 = boto3.client(
 
 @routes.route('/change-picture', methods = ['GET'])
 def change_picture():
-    return render_template('change_picture.html')
+    return render_template('change_picture.html', profile_pic=session['profile_pic'])
 
 
 @routes.route('/change-picture', methods = ['POST'])
@@ -57,6 +57,8 @@ def upload_file():
         'email': email_para,
         'profile_pic': img_url
         }))
+
+        session['profile_pic'] = img_url
         
         return redirect(url_for('routes.profile'))
 

@@ -49,7 +49,7 @@ def movie(movie_name):
     print(data)
     watched= has_watched(movie_name)
     return render_template('movie.html', movie = data,  cast = data_cast, director = data_director, genres = data_genre, 
-    movie_num = movie_name, has_watched = watched)
+    movie_num = movie_name, has_watched = watched, profile_pic=session['profile_pic'])
 
     
 
