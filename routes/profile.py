@@ -8,7 +8,9 @@ from . import routes
 
 @routes.route('/profile', methods = ['GET', 'POST'])
 def profile():
-
+    if not session.get('username'):
+        flash(f'Error: Please login')
+        return redirect(url_for('routes.login'))
     if request.method == 'POST':
         mobile_num_para = request.form['mobile']
         username_para = request.form['username']

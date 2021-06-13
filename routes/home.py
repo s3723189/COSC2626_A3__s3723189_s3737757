@@ -8,6 +8,11 @@ import requests
 @routes.route('/home', methods = ['GET', 'POST'])
 def home():
     
+
+    if not check_session():
+        flash(f'Error: Please login')
+        return redirect(url_for('routes.login'))
+
     search_data = []
     
     search = request.args.get('search', None)
@@ -40,12 +45,31 @@ def return_movies(search):
     for row in data_search:
         results.append(row['_source']['movie_id'])
     
+
+    seen = set()
     for row in results:
         request_query = "https://5aegj1tt7i.execute-api.us-east-1.amazonaws.com/"\
         "default/helloworld?action=movie&id={id}".format(id = row)
         result_query = requests.get(url = request_query)
         data = result_query.json()
-        final_result.append(data)
-
+        if row not in seen:
+            seen.add(row)
+            final_result.append(data)
+      
 
     return final_result
+
+
+def check_session():
+    if not session.get('username'):
+        return False
+    query =f"https://tqxdruy9ka.execute-api.us-east-1.amazonaws.com/default/redis?action=check&token={session['email']}"
+    result = requests.get(url = query)
+    result = result.json()
+   
+    if result != "b'true'":
+        session.clear()
+        return False
+    
+    
+    return True

@@ -6,7 +6,9 @@ from . import routes
 import requests
 @routes.route('/trending', methods = ['GET'])
 def trending():
-
+    if not session.get('username'):
+        flash(f'Error: Please login')
+        return redirect(url_for('routes.login'))
     request_query = "https://552vpnxh6b.execute-api.us-east-1.amazonaws.com/default/TrendingFunction"
     result = requests.get(url = request_query)
     data = result.json()

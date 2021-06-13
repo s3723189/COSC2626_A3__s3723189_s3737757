@@ -19,7 +19,7 @@ def login():
         data = result.json()
         
         if len(data) == 0:
-
+            flash(f'Error: Incorrect account details please try again')
             return render_template('login.html')
 
         
@@ -45,7 +45,7 @@ def log_in_user(name, password, email, primary_key, profile_pic):
     result = result.json()
     if result == "b'true'":
         print('Already Logged in ')
-
+        flash(f'User is already logged in')
         SENDER = "muhammadgiorady@yahoo.com"
         RECIPIENT = email
         AWS_REGION = "us-east-1"
